@@ -59,9 +59,7 @@ if streamlit.button(' get  fruit load list '):
 def get_fruityvice_data(this_fruit_choice):
     fruityvice_response= requests.get("http://fruityvice.com/api/fruit/" + this_fruit_choice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
-    return fruityvice_normalized
-    
-  
+    return fruityvice_normalized  
 # new section to display
 streamlit.header('fruityvice fruit advice !')
 try:
@@ -73,8 +71,6 @@ try:
        streamlit.dataframe(back_from_function) 
 except URLError as e:
     streamlit.error()
-   
-
 streamlit.header("the fruit load list contains:")
 #snowflake related function
 def get_fruit_load_list():
