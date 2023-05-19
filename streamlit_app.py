@@ -62,11 +62,12 @@ if streamlit.button(' get  fruit load list '):
     my_cnx.close()
     streamlit.dataframe(my_data_rows)
     
-    def get_fruityvice_data(this_fruit_choice):
+def get_fruityvice_data(this_fruit_choice):
     fruityvice_response= requests.get("http://fruityvice.com/api/fruit/" + this_fruit_choice)
     fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
     return fruityvice_normalized
-
+    
+  
 # new section to display
 streamlit.header('fruityvice fruit advice !')
 try:
